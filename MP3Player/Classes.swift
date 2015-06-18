@@ -45,10 +45,14 @@ class Config
 				let str = content!.componentsSeparatedByString("\n")
 				for s in str
 				{
-					var newItem = PlayItem()
-					println(s.pathExtension)
-					newItem.address = s
-					PlayList.append(newItem)
+					let clearExt = s.pathExtension.componentsSeparatedByString("?")[0]
+					println(clearExt)
+					if clearExt == "mp3"
+					{
+						var newItem = PlayItem()
+						newItem.address = s
+						PlayList.append(newItem)
+					}
 				}
 			}
 		}

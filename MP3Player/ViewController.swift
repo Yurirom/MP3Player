@@ -10,14 +10,44 @@ import UIKit
 
 class ViewController: UITableViewController
 {
-
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-		
+		self.refreshControl = UIRefreshControl()
+		self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+		self.refreshControl?.tintColor = UIColor.blackColor()
+
 		_cfg = Config()
 		_cfg?.loadPlayList()
+	}
+
+//    override func viewDidAppear(animated: Bool)
+//    {
+//        Update()
+//    }
+
+//    override func viewWillTransitionToSize(size: CGSize,
+//        withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+//    {
+//        var x = DW
+//        DW = DH
+//        DH = x
+//        Offset = DW / 6
+////        Update()
+//    }
+
+	func refresh(sender:AnyObject)
+	{
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+		refreshtab()
+		self.refreshControl?.endRefreshing()
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+	}
+	
+	func refreshtab()
+	{
+		
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -75,7 +105,8 @@ class ItemCell: UITableViewCell
 //		}
 //		MenuImage.image = img
 //		MenuImage.backgroundColor = _cfg!.Colors[3].c
-		Item.text = _cfg!.PlayList[ind].address
+		let fixs = _cfg!.PlayList[ind].address.stringByReplacingOccurrencesOfString("%20", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%28", withString: "(", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%29", withString: ")", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+		Item.text = fixs
 		self.separatorInset.left = 0
 	}
 }
