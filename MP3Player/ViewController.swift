@@ -15,41 +15,58 @@ class ViewController: UITableViewController
 		super.viewDidLoad()
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		self.refreshControl = UIRefreshControl()
-		self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+		self.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
 		self.refreshControl?.tintColor = UIColor.blackColor()
-
+		
 		_cfg = Config()
 		_cfg?.loadPlayList()
 	}
 
-//    override func viewDidAppear(animated: Bool)
-//    {
-//        Update()
-//    }
+    override func viewDidAppear(animated: Bool)
+    {
+        refresh()
+    }
 
-//    override func viewWillTransitionToSize(size: CGSize,
-//        withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
-//    {
-//        var x = DW
-//        DW = DH
-//        DH = x
-//        Offset = DW / 6
-////        Update()
-//    }
-
-	func refresh(sender:AnyObject)
+	func refresh()
 	{
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-		refreshtab()
+		let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+		let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
+		var fileExists = false
+		
+		for i in 0..<_cfg!.PlayList.count
+		{
+			if !_cfg!.PlayList[i].fname.isEmpty
+			{
+				fileExists = NSFileManager.defaultManager().fileExistsAtPath(documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[i].fname))
+			}
+			if _cfg!.PlayList[i].fname.isEmpty || !fileExists
+			{
+				loadFile(i)
+			}
+		}
 		self.refreshControl?.endRefreshing()
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 	}
 	
-	func refreshtab()
+	func loadFile(ind: Int)
 	{
+		let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+		let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
 		
+		var url: NSURL = NSURL(string: _cfg!.PlayList[ind].address)!
+		var data = NSData(contentsOfURL: url, options: .DataReadingUncached, error: nil)
+		if data != nil
+		{
+			let xfile = clearURL(_cfg!.PlayList[ind].address).componentsSeparatedByString("?")[0]
+			let clearFileName = xfile.lastPathComponent
+			_cfg!.PlayList[ind].fname = clearFileName
+			let path = documentsDirectory.stringByAppendingPathComponent(clearFileName)
+			data!.writeToFile(path, atomically: true)
+			self.tableView.reloadData()
+		}
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
@@ -89,25 +106,44 @@ class ViewController: UITableViewController
 	}
 }
 
+// MARK: - none Class Functions
+// MARK: -
+func clearURL(str: String) -> String
+{
+	return str.stringByReplacingOccurrencesOfString("%20", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%28", withString: "(", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%29", withString: ")", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+}
+
 // MARK: - Class ItemCell
 // MARK: -
 class ItemCell: UITableViewCell
 {
 	@IBOutlet weak var Item: UILabel!
+	@IBOutlet var grayIndicator: UIActivityIndicatorView!
 //	@IBOutlet weak var Image: UIImageView!
+	
+	// When activity is done, use UIActivityIndicatorView.stopAnimating().
 	
 	func SetItem(ind: Int)
 	{
-//		var img = UIImage(named: _cfg!.Menu[ind] + ".png")
+		//		var img = UIImage(named: _cfg!.Menu[ind] + ".png")
 //		if img == nil
 //		{
 //			img = UIImage(named: "nopic.png")
 //		}
 //		MenuImage.image = img
 //		MenuImage.backgroundColor = _cfg!.Colors[3].c
-		let fixs = _cfg!.PlayList[ind].address.stringByReplacingOccurrencesOfString("%20", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%28", withString: "(", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%29", withString: ")", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-		Item.text = fixs
-		self.separatorInset.left = 0
+		if _cfg!.PlayList[ind].fname.isEmpty
+		{
+			Item.text = clearURL(_cfg!.PlayList[ind].address)
+			grayIndicator.activityIndicatorViewStyle = .Gray
+			grayIndicator.startAnimating()
+			grayIndicator.hidesWhenStopped = true
+		}
+		else
+		{
+			Item.text = _cfg!.PlayList[ind].fname
+			grayIndicator.stopAnimating()
+		}
 	}
 }
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Pw-XE-zvT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,16 +25,22 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Q5R-bD-4H2">
+                                            <rect key="frame" x="290" y="12" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="lf3-pv-Gus" secondAttribute="bottom" constant="10" id="6QK-KO-L8L"/>
+                                        <constraint firstItem="Q5R-bD-4H2" firstAttribute="centerX" secondItem="lf3-pv-Gus" secondAttribute="centerX" id="Dfz-az-U8v"/>
                                         <constraint firstItem="lf3-pv-Gus" firstAttribute="top" secondItem="UTI-z6-JiR" secondAttribute="top" constant="10" id="GFy-Wb-MTc"/>
                                         <constraint firstItem="lf3-pv-Gus" firstAttribute="leading" secondItem="UTI-z6-JiR" secondAttribute="leading" constant="5" id="XGP-ko-qbj"/>
                                         <constraint firstAttribute="trailing" secondItem="lf3-pv-Gus" secondAttribute="trailing" constant="5" id="biT-EP-0cH"/>
+                                        <constraint firstItem="Q5R-bD-4H2" firstAttribute="top" secondItem="UTI-z6-JiR" secondAttribute="topMargin" constant="4" id="mKu-Nn-YDt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="Item" destination="lf3-pv-Gus" id="xHV-wz-99k"/>
+                                    <outlet property="grayIndicator" destination="Q5R-bD-4H2" id="ebu-q2-YcB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

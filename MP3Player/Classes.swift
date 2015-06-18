@@ -45,12 +45,12 @@ class Config
 				let str = content!.componentsSeparatedByString("\n")
 				for s in str
 				{
-					let clearExt = s.pathExtension.componentsSeparatedByString("?")[0]
-					println(clearExt)
+					let clearS = s.stringByReplacingOccurrencesOfString("\r", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+					let clearExt = clearS.pathExtension.componentsSeparatedByString("?")[0]
 					if clearExt == "mp3"
 					{
 						var newItem = PlayItem()
-						newItem.address = s
+						newItem.address = clearS
 						PlayList.append(newItem)
 					}
 				}
