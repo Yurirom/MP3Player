@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAC677CC1B32569200E57473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677CB1B32569200E57473 /* AppDelegate.swift */; };
+		DAC677CE1B32569200E57473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677CD1B32569200E57473 /* ViewController.swift */; };
+		DAC677D11B32569200E57473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC677CF1B32569200E57473 /* Main.storyboard */; };
+		DAC677D31B32569200E57473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D21B32569200E57473 /* Images.xcassets */; };
+		DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D41B32569200E57473 /* LaunchScreen.xib */; };
+		DAC677E21B32569200E57473 /* MP3PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677E11B32569200E57473 /* MP3PlayerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAC677DC1B32569200E57473 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC677BE1B32569200E57473 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAC677C51B32569200E57473;
+			remoteInfo = MP3Player;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DAC677C61B32569200E57473 /* MP3Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MP3Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC677CA1B32569200E57473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC677CB1B32569200E57473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DAC677CD1B32569200E57473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DAC677D01B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAC677D21B32569200E57473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DAC677D51B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DAC677DB1B32569200E57473 /* MP3PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MP3PlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC677E01B32569200E57473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC677E11B32569200E57473 /* MP3PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MP3PlayerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAC677C31B32569200E57473 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC677D81B32569200E57473 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAC677BD1B32569200E57473 = {
+			isa = PBXGroup;
+			children = (
+				DAC677C81B32569200E57473 /* MP3Player */,
+				DAC677DE1B32569200E57473 /* MP3PlayerTests */,
+				DAC677C71B32569200E57473 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAC677C71B32569200E57473 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC677C61B32569200E57473 /* MP3Player.app */,
+				DAC677DB1B32569200E57473 /* MP3PlayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC677C81B32569200E57473 /* MP3Player */ = {
+			isa = PBXGroup;
+			children = (
+				DAC677CB1B32569200E57473 /* AppDelegate.swift */,
+				DAC677CD1B32569200E57473 /* ViewController.swift */,
+				DAC677CF1B32569200E57473 /* Main.storyboard */,
+				DAC677D21B32569200E57473 /* Images.xcassets */,
+				DAC677D41B32569200E57473 /* LaunchScreen.xib */,
+				DAC677C91B32569200E57473 /* Supporting Files */,
+			);
+			path = MP3Player;
+			sourceTree = "<group>";
+		};
+		DAC677C91B32569200E57473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAC677CA1B32569200E57473 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAC677DE1B32569200E57473 /* MP3PlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAC677E11B32569200E57473 /* MP3PlayerTests.swift */,
+				DAC677DF1B32569200E57473 /* Supporting Files */,
+			);
+			path = MP3PlayerTests;
+			sourceTree = "<group>";
+		};
+		DAC677DF1B32569200E57473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAC677E01B32569200E57473 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAC677C51B32569200E57473 /* MP3Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC677E51B32569200E57473 /* Build configuration list for PBXNativeTarget "MP3Player" */;
+			buildPhases = (
+				DAC677C21B32569200E57473 /* Sources */,
+				DAC677C31B32569200E57473 /* Frameworks */,
+				DAC677C41B32569200E57473 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MP3Player;
+			productName = MP3Player;
+			productReference = DAC677C61B32569200E57473 /* MP3Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAC677DA1B32569200E57473 /* MP3PlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC677E81B32569200E57473 /* Build configuration list for PBXNativeTarget "MP3PlayerTests" */;
+			buildPhases = (
+				DAC677D71B32569200E57473 /* Sources */,
+				DAC677D81B32569200E57473 /* Frameworks */,
+				DAC677D91B32569200E57473 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAC677DD1B32569200E57473 /* PBXTargetDependency */,
+			);
+			name = MP3PlayerTests;
+			productName = MP3PlayerTests;
+			productReference = DAC677DB1B32569200E57473 /* MP3PlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAC677BE1B32569200E57473 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = yurirom;
+				TargetAttributes = {
+					DAC677C51B32569200E57473 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					DAC677DA1B32569200E57473 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = DAC677C51B32569200E57473;
+					};
+				};
+			};
+			buildConfigurationList = DAC677C11B32569200E57473 /* Build configuration list for PBXProject "MP3Player" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAC677BD1B32569200E57473;
+			productRefGroup = DAC677C71B32569200E57473 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAC677C51B32569200E57473 /* MP3Player */,
+				DAC677DA1B32569200E57473 /* MP3PlayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAC677C41B32569200E57473 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC677D11B32569200E57473 /* Main.storyboard in Resources */,
+				DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */,
+				DAC677D31B32569200E57473 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC677D91B32569200E57473 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAC677C21B32569200E57473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC677CE1B32569200E57473 /* ViewController.swift in Sources */,
+				DAC677CC1B32569200E57473 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC677D71B32569200E57473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC677E21B32569200E57473 /* MP3PlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAC677DD1B32569200E57473 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAC677C51B32569200E57473 /* MP3Player */;
+			targetProxy = DAC677DC1B32569200E57473 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAC677CF1B32569200E57473 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC677D01B32569200E57473 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DAC677D41B32569200E57473 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC677D51B32569200E57473 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAC677E31B32569200E57473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAC677E41B32569200E57473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAC677E61B32569200E57473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MP3Player/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DAC677E71B32569200E57473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MP3Player/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DAC677E91B32569200E57473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MP3PlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MP3Player.app/MP3Player";
+			};
+			name = Debug;
+		};
+		DAC677EA1B32569200E57473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MP3PlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MP3Player.app/MP3Player";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAC677C11B32569200E57473 /* Build configuration list for PBXProject "MP3Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC677E31B32569200E57473 /* Debug */,
+				DAC677E41B32569200E57473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC677E51B32569200E57473 /* Build configuration list for PBXNativeTarget "MP3Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC677E61B32569200E57473 /* Debug */,
+				DAC677E71B32569200E57473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DAC677E81B32569200E57473 /* Build configuration list for PBXNativeTarget "MP3PlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC677E91B32569200E57473 /* Debug */,
+				DAC677EA1B32569200E57473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAC677BE1B32569200E57473 /* Project object */;
+}
