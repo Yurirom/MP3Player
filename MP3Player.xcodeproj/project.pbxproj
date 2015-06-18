@@ -12,6 +12,9 @@
 		DAC677D11B32569200E57473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC677CF1B32569200E57473 /* Main.storyboard */; };
 		DAC677D31B32569200E57473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D21B32569200E57473 /* Images.xcassets */; };
 		DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D41B32569200E57473 /* LaunchScreen.xib */; };
+		DAC677EC1B32A1FF00E57473 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677EB1B32A1FF00E57473 /* Classes.swift */; };
+		DAC677EF1B32B17100E57473 /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC677EE1B32B17100E57473 /* Note.png */; };
+		DAC677F11B32B2D600E57473 /* Config.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC677F01B32B2D600E57473 /* Config.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		DAC677D01B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAC677D21B32569200E57473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAC677D51B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DAC677EB1B32A1FF00E57473 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		DAC677EE1B32B17100E57473 /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Note.png; sourceTree = "<group>"; };
+		DAC677F01B32B2D600E57473 /* Config.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Config.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,11 @@
 			children = (
 				DAC677CB1B32569200E57473 /* AppDelegate.swift */,
 				DAC677CD1B32569200E57473 /* ViewController.swift */,
+				DAC677EB1B32A1FF00E57473 /* Classes.swift */,
 				DAC677CF1B32569200E57473 /* Main.storyboard */,
 				DAC677D21B32569200E57473 /* Images.xcassets */,
 				DAC677D41B32569200E57473 /* LaunchScreen.xib */,
+				DAC677ED1B32B10B00E57473 /* Resources */,
 				DAC677C91B32569200E57473 /* Supporting Files */,
 			);
 			path = MP3Player;
@@ -70,6 +78,15 @@
 				DAC677CA1B32569200E57473 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAC677ED1B32B10B00E57473 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DAC677F01B32B2D600E57473 /* Config.txt */,
+				DAC677EE1B32B17100E57473 /* Note.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +120,7 @@
 				TargetAttributes = {
 					DAC677C51B32569200E57473 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = XKXWN9C2LN;
 					};
 				};
 			};
@@ -132,6 +150,8 @@
 				DAC677D11B32569200E57473 /* Main.storyboard in Resources */,
 				DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */,
 				DAC677D31B32569200E57473 /* Images.xcassets in Resources */,
+				DAC677F11B32B2D600E57473 /* Config.txt in Resources */,
+				DAC677EF1B32B17100E57473 /* Note.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +164,7 @@
 			files = (
 				DAC677CE1B32569200E57473 /* ViewController.swift in Sources */,
 				DAC677CC1B32569200E57473 /* AppDelegate.swift in Sources */,
+				DAC677EC1B32A1FF00E57473 /* Classes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MP3Player/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MP3Player/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
