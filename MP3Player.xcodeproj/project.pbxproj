@@ -12,18 +12,7 @@
 		DAC677D11B32569200E57473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC677CF1B32569200E57473 /* Main.storyboard */; };
 		DAC677D31B32569200E57473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D21B32569200E57473 /* Images.xcassets */; };
 		DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D41B32569200E57473 /* LaunchScreen.xib */; };
-		DAC677E21B32569200E57473 /* MP3PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677E11B32569200E57473 /* MP3PlayerTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DAC677DC1B32569200E57473 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAC677BE1B32569200E57473 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DAC677C51B32569200E57473;
-			remoteInfo = MP3Player;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DAC677C61B32569200E57473 /* MP3Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MP3Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,20 +22,10 @@
 		DAC677D01B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAC677D21B32569200E57473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAC677D51B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DAC677DB1B32569200E57473 /* MP3PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MP3PlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAC677E01B32569200E57473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAC677E11B32569200E57473 /* MP3PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MP3PlayerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DAC677C31B32569200E57473 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DAC677D81B32569200E57473 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC677C81B32569200E57473 /* MP3Player */,
-				DAC677DE1B32569200E57473 /* MP3PlayerTests */,
 				DAC677C71B32569200E57473 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC677C61B32569200E57473 /* MP3Player.app */,
-				DAC677DB1B32569200E57473 /* MP3PlayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,23 +72,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DAC677DE1B32569200E57473 /* MP3PlayerTests */ = {
-			isa = PBXGroup;
-			children = (
-				DAC677E11B32569200E57473 /* MP3PlayerTests.swift */,
-				DAC677DF1B32569200E57473 /* Supporting Files */,
-			);
-			path = MP3PlayerTests;
-			sourceTree = "<group>";
-		};
-		DAC677DF1B32569200E57473 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DAC677E01B32569200E57473 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,24 +92,6 @@
 			productReference = DAC677C61B32569200E57473 /* MP3Player.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DAC677DA1B32569200E57473 /* MP3PlayerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DAC677E81B32569200E57473 /* Build configuration list for PBXNativeTarget "MP3PlayerTests" */;
-			buildPhases = (
-				DAC677D71B32569200E57473 /* Sources */,
-				DAC677D81B32569200E57473 /* Frameworks */,
-				DAC677D91B32569200E57473 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DAC677DD1B32569200E57473 /* PBXTargetDependency */,
-			);
-			name = MP3PlayerTests;
-			productName = MP3PlayerTests;
-			productReference = DAC677DB1B32569200E57473 /* MP3PlayerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +103,6 @@
 				TargetAttributes = {
 					DAC677C51B32569200E57473 = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					DAC677DA1B32569200E57473 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = DAC677C51B32569200E57473;
 					};
 				};
 			};
@@ -182,7 +120,6 @@
 			projectRoot = "";
 			targets = (
 				DAC677C51B32569200E57473 /* MP3Player */,
-				DAC677DA1B32569200E57473 /* MP3PlayerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -198,13 +135,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DAC677D91B32569200E57473 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -217,23 +147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DAC677D71B32569200E57473 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DAC677E21B32569200E57473 /* MP3PlayerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DAC677DD1B32569200E57473 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DAC677C51B32569200E57473 /* MP3Player */;
-			targetProxy = DAC677DC1B32569200E57473 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DAC677CF1B32569200E57473 /* Main.storyboard */ = {
@@ -358,40 +272,6 @@
 			};
 			name = Release;
 		};
-		DAC677E91B32569200E57473 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MP3PlayerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MP3Player.app/MP3Player";
-			};
-			name = Debug;
-		};
-		DAC677EA1B32569200E57473 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MP3PlayerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MP3Player.app/MP3Player";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -409,14 +289,6 @@
 			buildConfigurations = (
 				DAC677E61B32569200E57473 /* Debug */,
 				DAC677E71B32569200E57473 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		DAC677E81B32569200E57473 /* Build configuration list for PBXNativeTarget "MP3PlayerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DAC677E91B32569200E57473 /* Debug */,
-				DAC677EA1B32569200E57473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
