@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import MediaPlayer
 
 var audioPlayer: AVAudioPlayer?
 
