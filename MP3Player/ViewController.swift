@@ -251,14 +251,13 @@ class ItemCell: UITableViewCell
 		self.contentView.backgroundColor = UIColor.whiteColor()
 		grayIndicator.activityIndicatorViewStyle = .Gray
 		grayIndicator.hidesWhenStopped = true
-		self.separatorInset.left = 2000
+		self.separatorInset.left = 0
 		
 		if _cfg!.PlayList[ind].checked
 		{
 			Item.text = "Title: \(_cfg!.PlayList[ind].meta.title)  Artist: \(_cfg!.PlayList[ind].meta.artist)"
 			grayIndicator.stopAnimating()
-			self.contentView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.97, alpha: 1.0)
-			self.separatorInset.left = 0
+			self.contentView.backgroundColor = UIColor(red: 1.0, green: 0.98, blue: 0.92, alpha: 1.0)
 		}
 		else
 		{
