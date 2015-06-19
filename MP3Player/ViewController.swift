@@ -109,10 +109,10 @@ class ViewController: UITableViewController
 			{
 				_cfg!.PlayList[i].checked = true
 				deleteButton.enabled = true
-//				self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: i, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+				let furl = NSURL(fileURLWithPath: documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[i].fname))!
+				_cfg!.PlayList[i].meta = loadMetaDataFromAudioFile(furl)
 				self.tableView.reloadData()
-//				self.tableView.setNeedsDisplay()
-//				self.view.setNeedsDisplay()
+				self.tableView.setNeedsDisplay()
 			}
 		}
 		self.refreshControl?.endRefreshing()
@@ -133,6 +133,8 @@ class ViewController: UITableViewController
 			data!.writeToFile(path, atomically: true)
 			_cfg!.PlayList[ind].checked = true
 			deleteButton.enabled = true
+			let furl = NSURL(fileURLWithPath: documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[ind].fname))!
+			_cfg!.PlayList[ind].meta = loadMetaDataFromAudioFile(furl)
 			self.tableView.reloadData()
 			self.tableView.setNeedsDisplay()
 		}
@@ -246,14 +248,6 @@ class ItemCell: UITableViewCell
 	
 	func SetItem(ind: Int)
 	{
-//		var img = UIImage(named: _cfg!.Menu[ind] + ".png")
-//		if img == nil
-//		{
-//			img = UIImage(named: "nopic.png")
-//		}
-//		MenuImage.image = img
-//		MenuImage.backgroundColor = _cfg!.Colors[3].c
-		//grayIndicator.hidden = true
 		self.contentView.backgroundColor = UIColor.whiteColor()
 		grayIndicator.activityIndicatorViewStyle = .Gray
 		grayIndicator.hidesWhenStopped = true
@@ -261,7 +255,7 @@ class ItemCell: UITableViewCell
 		
 		if _cfg!.PlayList[ind].checked
 		{
-			Item.text = _cfg!.PlayList[ind].fname
+			Item.text = "Title: \(_cfg!.PlayList[ind].meta.title)  Artist: \(_cfg!.PlayList[ind].meta.artist)"
 			grayIndicator.stopAnimating()
 			self.contentView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.97, alpha: 1.0)
 			self.separatorInset.left = 0
