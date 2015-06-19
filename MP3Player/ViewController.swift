@@ -27,7 +27,6 @@ class ViewController: UITableViewController
 		
 		let alertCotroller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
 		
-		// Create the actions.
 		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .Cancel) { action in
 			return
 		}
@@ -69,8 +68,7 @@ class ViewController: UITableViewController
 		self.refreshControl?.tintColor = UIColor.blackColor()
 		deleteButton.enabled = false
 		self.navigationItem.title = "Playlist"
-//		self.navigationController?.navigationBar.titleTextAttributes =
-		
+
 		_cfg = Config()
 		_cfg?.loadPlayList()
 	}
