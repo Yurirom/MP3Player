@@ -181,10 +181,13 @@ class ViewController: UITableViewController
 		}
 		else
 		{
-			let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-			let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
-			var data = NSData(contentsOfFile: documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[selectedItem].fname))
-			Player(data!)
+			if _cfg!.PlayList[selectedItem].checked
+			{
+				let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+				let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
+				var data = NSData(contentsOfFile: documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[selectedItem].fname))
+				Player(data!)
+			}
 		}
 	}
 }
