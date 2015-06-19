@@ -314,6 +314,7 @@
 				DAC677E71B32569200E57473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

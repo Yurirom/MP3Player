@@ -51,6 +51,9 @@ class Config
 					{
 						var newItem = PlayItem()
 						newItem.address = clearS
+						let xfile = clearURL(clearS).componentsSeparatedByString("?")[0]
+						let clearFileName = xfile.lastPathComponent
+						newItem.fname = clearFileName
 						PlayList.append(newItem)
 					}
 				}
@@ -64,6 +67,18 @@ class Config
 struct PlayItem
 {
 	var address: String = String()
-	var description: String = String()
+	var meta: MetaData = MetaData()
 	var fname: String = String()
+	var checked: Bool = false
 }
+
+// MARK: - MetaData
+// MARK: -
+class MetaData
+{
+	var title: String = String()
+	var artist: String = String()
+	var album: String = String()
+	var artwork: UIImage?
+}
+

@@ -13,6 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="2000" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="mW8-af-ovM" customClass="ItemCell" customModule="MP3Player" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -38,6 +39,7 @@
                                         <constraint firstItem="Q5R-bD-4H2" firstAttribute="top" secondItem="UTI-z6-JiR" secondAttribute="topMargin" constant="4" id="mKu-Nn-YDt"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="Item" destination="lf3-pv-Gus" id="xHV-wz-99k"/>
                                     <outlet property="grayIndicator" destination="Q5R-bD-4H2" id="ebu-q2-YcB"/>
@@ -49,7 +51,18 @@
                             <outlet property="delegate" destination="Ywy-HC-YhR" id="2xu-7c-HMQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lvj-Nz-4eG"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="lvj-Nz-4eG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="G2G-ch-SC8">
+                            <connections>
+                                <action selector="deleteFiles:" destination="Ywy-HC-YhR" id="iOU-MO-nFw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="G2G-ch-SC8" id="tOv-SQ-bcR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tk5-7h-vDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

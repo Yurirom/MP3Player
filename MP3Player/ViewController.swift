@@ -7,9 +7,59 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
+
+var audioPlayer: AVAudioPlayer?
 
 class ViewController: UITableViewController
 {
+	var bRefreshing = false
+	@IBOutlet weak var deleteButton: UIBarButtonItem!
+	
+	@IBAction func deleteFiles(sender: AnyObject)
+	{
+		var fileExists = false
+		let title = "Внимание!"
+		let message = "Загруженные файлы будут удалены!\nВы уверены?"
+		let cancelButtonTitle = "Cancel"
+		let otherButtonTitle = "OK"
+		
+		let alertCotroller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+		
+		// Create the actions.
+		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .Cancel) { action in
+			return
+		}
+		
+		let otherAction = UIAlertAction(title: otherButtonTitle, style: .Default) { action in
+			let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+			let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
+			var fileExists = false
+			
+			for i in 0..<_cfg!.PlayList.count
+			{
+				_cfg!.PlayList[i].checked = false
+				self.tableView.reloadData()
+				if !_cfg!.PlayList[i].fname.isEmpty
+				{
+					fileExists = NSFileManager.defaultManager().fileExistsAtPath(documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[i].fname))
+				}
+				if fileExists
+				{
+					NSFileManager.defaultManager().removeItemAtPath(documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[i].fname), error: nil)
+					self.refresh()
+				}
+			}
+		}
+		
+		// Add the actions.
+		alertCotroller.addAction(cancelAction)
+		alertCotroller.addAction(otherAction)
+		
+		presentViewController(alertCotroller, animated: true, completion: nil)
+	}
+	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -17,6 +67,9 @@ class ViewController: UITableViewController
 		self.refreshControl = UIRefreshControl()
 		self.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
 		self.refreshControl?.tintColor = UIColor.blackColor()
+		deleteButton.enabled = false
+		self.navigationItem.title = "Playlist"
+//		self.navigationController?.navigationBar.titleTextAttributes =
 		
 		_cfg = Config()
 		_cfg?.loadPlayList()
@@ -29,20 +82,37 @@ class ViewController: UITableViewController
 
 	func refresh()
 	{
+		if bRefreshing
+		{
+			self.refreshControl?.endRefreshing()
+			return
+		}
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
 		let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
 		var fileExists = false
+		deleteButton.enabled = false
 		
 		for i in 0..<_cfg!.PlayList.count
 		{
+			_cfg!.PlayList[i].checked = false
+			self.tableView.reloadData()
 			if !_cfg!.PlayList[i].fname.isEmpty
 			{
 				fileExists = NSFileManager.defaultManager().fileExistsAtPath(documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[i].fname))
 			}
-			if _cfg!.PlayList[i].fname.isEmpty || !fileExists
+			if !fileExists
 			{
-				loadFile(i)
+				dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {self.loadFile(i)})
+			}
+			else
+			{
+				_cfg!.PlayList[i].checked = true
+				deleteButton.enabled = true
+//				self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: i, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
+				self.tableView.reloadData()
+//				self.tableView.setNeedsDisplay()
+//				self.view.setNeedsDisplay()
 			}
 		}
 		self.refreshControl?.endRefreshing()
@@ -51,6 +121,7 @@ class ViewController: UITableViewController
 	
 	func loadFile(ind: Int)
 	{
+		bRefreshing = true
 		let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
 		let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
 		
@@ -58,13 +129,14 @@ class ViewController: UITableViewController
 		var data = NSData(contentsOfURL: url, options: .DataReadingUncached, error: nil)
 		if data != nil
 		{
-			let xfile = clearURL(_cfg!.PlayList[ind].address).componentsSeparatedByString("?")[0]
-			let clearFileName = xfile.lastPathComponent
-			_cfg!.PlayList[ind].fname = clearFileName
-			let path = documentsDirectory.stringByAppendingPathComponent(clearFileName)
+			let path = documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[ind].fname)
 			data!.writeToFile(path, atomically: true)
+			_cfg!.PlayList[ind].checked = true
+			deleteButton.enabled = true
 			self.tableView.reloadData()
+			self.tableView.setNeedsDisplay()
 		}
+		bRefreshing = false
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -92,7 +164,7 @@ class ViewController: UITableViewController
 		cell.backgroundColor = UIColor.whiteColor()
 		if indexPath.row == selectedItem
 		{
-			cell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.8, alpha: 1)
+			cell.contentView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.8, alpha: 1)
 		}
 		return cell
 	}
@@ -101,8 +173,20 @@ class ViewController: UITableViewController
 	// MARK: -
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
 	{
+		let bstop = selectedItem == indexPath.row
 		selectedItem = indexPath.row
 		tableView.reloadData()
+		if bstop && audioPlayer != nil
+		{
+			audioPlayer = nil
+		}
+		else
+		{
+			let paths: NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+			let documentsDirectory: NSString = paths.objectAtIndex(0) as! NSString
+			var data = NSData(contentsOfFile: documentsDirectory.stringByAppendingPathComponent(_cfg!.PlayList[selectedItem].fname))
+			Player(data!)
+		}
 	}
 }
 
@@ -113,37 +197,79 @@ func clearURL(str: String) -> String
 	return str.stringByReplacingOccurrencesOfString("%20", withString: " ", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%28", withString: "(", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil).stringByReplacingOccurrencesOfString("%29", withString: ")", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
 }
 
+func Player(D: NSData)
+{
+	if audioPlayer != nil
+	{
+		audioPlayer = nil
+	}
+	var e = NSErrorPointer()
+	audioPlayer = AVAudioPlayer(data: D, error: e)
+	audioPlayer?.prepareToPlay()
+	if let sound = audioPlayer
+	{
+		sound.play()
+	}
+}
+
+func loadMetaDataFromAudioFile(url: NSURL) -> MetaData
+{
+	let asset: AVAsset = AVURLAsset(URL:url, options: nil)
+	let meta: Array = asset.commonMetadata
+	let md = MetaData()
+	
+	for item in meta
+	{
+		switch item.commonKey as String
+		{
+		case AVMetadataCommonKeyTitle:
+			md.title = item.stringValue
+		case AVMetadataCommonKeyAlbumName:
+			md.album = item.stringValue
+		case AVMetadataCommonKeyArtist:
+			md.artist = item.stringValue
+		case AVMetadataCommonKeyArtwork:
+			md.artwork = UIImage(data:item.dataValue)
+		default:
+			break
+		}
+	}
+	return md
+}
+
 // MARK: - Class ItemCell
 // MARK: -
 class ItemCell: UITableViewCell
 {
 	@IBOutlet weak var Item: UILabel!
 	@IBOutlet var grayIndicator: UIActivityIndicatorView!
-//	@IBOutlet weak var Image: UIImageView!
-	
-	// When activity is done, use UIActivityIndicatorView.stopAnimating().
 	
 	func SetItem(ind: Int)
 	{
-		//		var img = UIImage(named: _cfg!.Menu[ind] + ".png")
+//		var img = UIImage(named: _cfg!.Menu[ind] + ".png")
 //		if img == nil
 //		{
 //			img = UIImage(named: "nopic.png")
 //		}
 //		MenuImage.image = img
 //		MenuImage.backgroundColor = _cfg!.Colors[3].c
-		if _cfg!.PlayList[ind].fname.isEmpty
-		{
-			Item.text = clearURL(_cfg!.PlayList[ind].address)
-			grayIndicator.activityIndicatorViewStyle = .Gray
-			grayIndicator.startAnimating()
-			grayIndicator.hidesWhenStopped = true
-		}
-		else
+		//grayIndicator.hidden = true
+		self.contentView.backgroundColor = UIColor.whiteColor()
+		grayIndicator.activityIndicatorViewStyle = .Gray
+		grayIndicator.hidesWhenStopped = true
+		self.separatorInset.left = 2000
+		
+		if _cfg!.PlayList[ind].checked
 		{
 			Item.text = _cfg!.PlayList[ind].fname
 			grayIndicator.stopAnimating()
+			self.contentView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 0.97, alpha: 1.0)
+			self.separatorInset.left = 0
+		}
+		else
+		{
+			Item.text = clearURL(_cfg!.PlayList[ind].address)
+			grayIndicator.startAnimating()
 		}
 	}
 }
-
