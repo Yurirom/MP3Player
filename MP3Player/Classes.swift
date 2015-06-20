@@ -13,6 +13,7 @@ import UIKit
 
 var _cfg: Config?
 var selectedItem = 0
+var NoImage: UIImage?
 
 // MARK: - Config
 // MARK: -

@@ -67,6 +67,7 @@ class ViewController: UITableViewController
 		self.refreshControl?.tintColor = UIColor.blackColor()
 		deleteButton.enabled = false
 		self.navigationItem.title = "Playlist"
+		NoImage = UIImage(named: "Note.png")
 
 		_cfg = Config()
 		_cfg?.loadPlayList()
@@ -245,12 +246,14 @@ class ItemCell: UITableViewCell
 {
 	@IBOutlet weak var Item: UILabel!
 	@IBOutlet var grayIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var img: UIImageView!
 	
 	func SetItem(ind: Int)
 	{
 		self.contentView.backgroundColor = UIColor.whiteColor()
 		grayIndicator.activityIndicatorViewStyle = .Gray
 		grayIndicator.hidesWhenStopped = true
+		img.hidden = true
 		self.separatorInset.left = 0
 		
 		if _cfg!.PlayList[ind].checked
@@ -258,6 +261,13 @@ class ItemCell: UITableViewCell
 			Item.text = "Title: \(_cfg!.PlayList[ind].meta.title)  Artist: \(_cfg!.PlayList[ind].meta.artist)"
 			grayIndicator.stopAnimating()
 			self.contentView.backgroundColor = UIColor(red: 1.0, green: 0.98, blue: 0.92, alpha: 1.0)
+			img.image = (_cfg!.PlayList[ind].meta.artwork == nil) ? NoImage : _cfg!.PlayList[ind].meta.artwork
+			img.contentMode = .ScaleAspectFit
+			img.layer.cornerRadius = img.bounds.width / 5
+			img.layer.borderWidth = 0.5
+			img.layer.borderColor = UIColor(white: 0.75, alpha: 1).CGColor
+			img.clipsToBounds = true
+			img.hidden = false
 		}
 		else
 		{
