@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA40F1971B52425C00C818C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA40F1961B52425C00C818C4 /* Images.xcassets */; };
 		DAC677CC1B32569200E57473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677CB1B32569200E57473 /* AppDelegate.swift */; };
 		DAC677CE1B32569200E57473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677CD1B32569200E57473 /* ViewController.swift */; };
 		DAC677D11B32569200E57473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC677CF1B32569200E57473 /* Main.storyboard */; };
-		DAC677D31B32569200E57473 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D21B32569200E57473 /* Images.xcassets */; };
 		DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC677D41B32569200E57473 /* LaunchScreen.xib */; };
 		DAC677EC1B32A1FF00E57473 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC677EB1B32A1FF00E57473 /* Classes.swift */; };
 		DAC677EF1B32B17100E57473 /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC677EE1B32B17100E57473 /* Note.png */; };
@@ -18,12 +18,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA40F1961B52425C00C818C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAC677C61B32569200E57473 /* MP3Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MP3Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC677CA1B32569200E57473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC677CB1B32569200E57473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC677CD1B32569200E57473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAC677D01B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAC677D21B32569200E57473 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAC677D51B32569200E57473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DAC677EB1B32A1FF00E57473 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		DAC677EE1B32B17100E57473 /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Note.png; sourceTree = "<group>"; };
@@ -64,8 +64,8 @@
 				DAC677CD1B32569200E57473 /* ViewController.swift */,
 				DAC677EB1B32A1FF00E57473 /* Classes.swift */,
 				DAC677CF1B32569200E57473 /* Main.storyboard */,
-				DAC677D21B32569200E57473 /* Images.xcassets */,
 				DAC677D41B32569200E57473 /* LaunchScreen.xib */,
+				DA40F1961B52425C00C818C4 /* Images.xcassets */,
 				DAC677ED1B32B10B00E57473 /* Resources */,
 				DAC677C91B32569200E57473 /* Supporting Files */,
 			);
@@ -148,8 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC677D11B32569200E57473 /* Main.storyboard in Resources */,
+				DA40F1971B52425C00C818C4 /* Images.xcassets in Resources */,
 				DAC677D61B32569200E57473 /* LaunchScreen.xib in Resources */,
-				DAC677D31B32569200E57473 /* Images.xcassets in Resources */,
 				DAC677F11B32B2D600E57473 /* Config.txt in Resources */,
 				DAC677EF1B32B17100E57473 /* Note.png in Resources */,
 			);
